@@ -11,11 +11,12 @@ public:
 	~polynomial();
 	polynomial(const polynomial & p);
 	void add(int, double);
+	void clear();
 	polynomial*  operator+(polynomial & p);
 	polynomial*  operator-(polynomial & p);
-	polynomial  operator*(polynomial & p);
-	polynomial  operator/(polynomial & p);
-	polynomial  operator%(polynomial & p);
+	polynomial*  operator*(polynomial & p);
+	polynomial*  operator/(polynomial & p);
+	polynomial*  operator%(polynomial & p);
 	polynomial & operator=(const polynomial & p);
 	void print();
 private:
@@ -27,7 +28,7 @@ private:
 	}*List;
 	List polys;
 	int length;
-	void sort()//大问题...
+	void sort()
 	{
 		if (length == 1)return;
 		List temp = polys->next->next;//指向第二项
@@ -44,7 +45,6 @@ private:
 			{
 				temp = temp->next;
 				pre_2 = pre_2->next;
-				break;
 			}
 			else if (pstart == pre_2)
 			{
@@ -65,6 +65,8 @@ private:
 						pre_2->next = temp;
 						delete insert;
 						delete pstart;
+						this->length--;
+						this->length--;
 					}
 				}
 				else
@@ -92,6 +94,8 @@ private:
 						pre->next = pstart->next;
 						temp = temp->next;
 						pre_2->next = temp;
+						this->length--;
+						this->length--;
 					}
 				}
 				else
@@ -110,3 +114,4 @@ std::queue<polynomial *> transform(std::string & s);
 
 polynomial * Caculate(std::string &s);
 
+int operand_(char c);
