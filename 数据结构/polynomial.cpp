@@ -336,7 +336,7 @@ polynomial * Caculate(std::string &s)
 	return polys_0.top();
 }
 
-void polynomial::print()//待处理零多项式和零次多项式
+void polynomial::print()
 {
 	List temp = this->polys;
 	if (length == 0)std::cout << 0;
@@ -362,11 +362,11 @@ void polynomial::print()//待处理零多项式和零次多项式
 		}
 		else
 		{
-			if (temp->confficient == 1)
+			if (temp->confficient == -1)
 			{
 				if (temp->exponent == 0)std::cout << temp->confficient;
-				else if (temp->exponent == 1)std::cout << 'X';
-				else  std::cout << "X^" << temp->exponent;
+				else if (temp->exponent == 1)std::cout << "-X";
+				else  std::cout << "-X^" << temp->exponent;
 			}
 			else
 			{
@@ -400,11 +400,11 @@ void polynomial::print()//待处理零多项式和零次多项式
 			}
 			else
 			{
-				if (temp->confficient == 1)
+				if (temp->confficient == -1)
 				{
 					if (temp->exponent == 0)std::cout << temp->confficient;
-					else if (temp->exponent == 1)std::cout << 'X';
-					else  std::cout << "X^" << temp->exponent;
+					else if (temp->exponent == 1)std::cout << "-X";
+					else  std::cout << "-X^" << temp->exponent;
 				}
 				else
 				{
